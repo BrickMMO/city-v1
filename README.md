@@ -1,2 +1,2 @@
-# events-v2
-A bacis registration system for BrickMMO related events. 
+# colours-v4
+A colours tool for the LEGO colour palette.
