@@ -5,42 +5,42 @@ function navigation_array($selected = false)
 
     $navigation = [
         [
-            'title' => 'Colours',
+            'title' => 'Events',
             'sections' => [
                 [
-                    'title' => 'Colours',
+                    'title' => 'Events',
                     'id' => 'admin-content',
                     'pages' => [
                         [
-                            'icon' => 'colours',
+                            'icon' => 'events',
                             'url' => '/admin/dashboard',
-                            'title' => 'Colours',
+                            'title' => 'Events',
                             'sub-pages' => [
                                 [
                                     'title' => 'Dashboard',
                                     'url' => '/admin/dashboard',
                                     'colour' => 'red',
                                 ],[
-                                    'title' => 'Import Colours',
-                                    'url' => '/admin/import',
+                                    'title' => 'Add Event',
+                                    'url' => '/admin/add',
                                     'colour' => 'red',
                                 ],[
                                     'br' => '---',
                                 ],[
-                                    'title' => 'Visit Colors App',
-                                    'url' => 'https://colours.brickmmo.com',
+                                    'title' => 'Visit Events App',
+                                    'url' => 'https://events.brickmmo.com',
                                     'colour' => 'orange',
                                     'icon' => 'fa-solid fa-arrow-up-right-from-square',
                                 ],[
                                     'br' => '---',
                                 ],[
                                     'title' => 'Uptime Report',
-                                    'url' => '/uptime/colours',
+                                    'url' => '/uptime/events',
                                     'colour' => 'orange',
                                     'icons' => 'bm-uptime',
                                 ],[
                                     'title' => 'Stats Report',
-                                    'url' => '/stas/colours',
+                                    'url' => '/stas/events',
                                     'colour' => 'orange',
                                     'icons' => 'bm-stats',
                                 ],
