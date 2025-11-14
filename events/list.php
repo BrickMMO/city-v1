@@ -25,7 +25,7 @@ $result = mysqli_query($connect, $query);
 <main>
     
     <div class="w3-center">
-        <h1>Upcoming events</h1>
+        <h1>Upcoming Events</h1>
     </div>
 
     <hr>
