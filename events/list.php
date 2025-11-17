@@ -15,7 +15,7 @@ include('../templates/message.php');
 
 $query = 'SELECT *
     FROM events
-    WHERE ends_at > NOW()
+    WHERE starts_at >= CURDATE()
     ORDER BY starts_at ASC
     LIMIT 4';
 $result = mysqli_query($connect, $query);
