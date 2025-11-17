@@ -32,7 +32,7 @@ $record = mysqli_fetch_assoc($result);
 
 
     <?php if($record['banner']): ?>
-        <img src="<?=$record['banner']?>" class="w3-image" style="max-wdith: 100%;">
+        <img src="<?=$record['banner']?>" class="w3-image" style="width: 100%;">
     <?php endif; ?>
 
     <p><?=nl2br($record['description'])?></p>
