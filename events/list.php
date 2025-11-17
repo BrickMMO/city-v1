@@ -17,7 +17,7 @@ $query = 'SELECT *
     FROM events
     WHERE ends_at > NOW()
     ORDER BY starts_at ASC
-    LIMIT 6';
+    LIMIT 4';
 $result = mysqli_query($connect, $query);
 
 ?>
@@ -35,7 +35,7 @@ $result = mysqli_query($connect, $query);
 
         <?php while ($record = mysqli_fetch_assoc($result)): ?>
 
-            <div class="w3-third w3-margin-bottom" style="display: flex;">
+            <div class="w3-half w3-margin-bottom" style="display: flex;">
                 <div class="w3-card-4" style="width: 100%; display: flex; flex-direction: column;">
                     
                     <header class="w3-container w3-purple">
@@ -45,14 +45,14 @@ $result = mysqli_query($connect, $query);
                     <div class="w3-container w3-padding" style="flex: 1; display: flex; flex-direction: column;">
                         <a href="/details/<?=$record['id']?>">
                             <?php if($record['thumbnail']): ?>
-                                <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; height: 300px; object-fit: cover;">
                             <?php else: ?>
                                 <img src="https://cdn.brickmmo.com/images@1.0.0/no_calendar.png" class="w3-image" style="width: 100%; height: 200px; object-fit: cover;">
                             <?php endif; ?>
                         </a>
                         
                         <div class="w3-margin-top" style="flex: 1;">
-                            <strong>Date:</strong> <?=date_to_format($record['starts_at'], 'SHORT')?>
+                            <strong>Date:</strong> <?=date_to_format($record['starts_at'], 'SHORT_FULL')?>
                             <br>
                             <strong>Location:</strong> <?=$record['location']?>
                         </div>

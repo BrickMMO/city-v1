@@ -65,6 +65,10 @@ $record = mysqli_fetch_assoc($result);
         <i class="fa-solid fa-caret-left fa-padding-right"></i>
         Back to Event List
     </a>
+    <a href="/calendar" class="w3-button w3-white w3-border">
+        <i class="fa-solid fa-calendar fa-padding-right"></i>
+        Back to Calendar View
+    </a>
 
             
 </main>
