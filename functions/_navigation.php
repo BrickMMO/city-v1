@@ -35,7 +35,7 @@ function navigation_array($selected = false)
                                     'br' => '---',
                                 ],[
                                     'title' => 'Uptime Report',
-                                    'url' => '/uptime/events',
+                                    'url' => 'https://uptime.brickmmo.com/details/9',
                                     'colour' => 'orange',
                                     'icons' => 'bm-uptime',
                                 ],[
