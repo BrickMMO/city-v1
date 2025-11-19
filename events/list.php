@@ -47,7 +47,7 @@ $result = mysqli_query($connect, $query);
                             <?php if($record['thumbnail']): ?>
                                 <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; height: 300px; object-fit: cover;">
                             <?php else: ?>
-                                <img src="https://cdn.brickmmo.com/images@1.0.0/no_calendar.png" class="w3-image" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://cdn.brickmmo.com/images@1.0.0/no-calendar.png" class="w3-image" style="width: 100%; height: 200px; object-fit: cover;">
                             <?php endif; ?>
                         </a>
                         

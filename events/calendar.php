@@ -145,7 +145,7 @@ $month_name = date('F Y', $first_day);
                                         // Print events for this day
                                         if (isset($events_by_day[$day_counter])) {
                                             foreach ($events_by_day[$day_counter] as $event) {
-                                                $thumb_url = $event['thumbnail'] ? $event['thumbnail'] : 'https://cdn.brickmmo.com/images@1.0.0/no_calendar.png';
+                                                $thumb_url = $event['thumbnail'] ? $event['thumbnail'] : 'https://cdn.brickmmo.com/images@1.0.0/no-calendar.png';
                                                 echo '<div style="font-size: 11px; margin: 2px 0; padding: 2px; background: #f8f8f8; display: flex; align-items: center; gap: 4px;">';
                                                 echo '<img src="'.$thumb_url.'" style="width: 20px; height: 20px; object-fit: cover; flex-shrink: 0;">';
                                                 echo '<a href="/details/'.$event['id'].'" style="text-decoration: none; color: #333; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">';
