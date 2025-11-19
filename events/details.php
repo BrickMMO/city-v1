@@ -55,7 +55,9 @@ $record = mysqli_fetch_assoc($result);
         <a href="<?=$record['registration']?>" class="w3-button w3-white w3-border">
             <i class="fa-solid fa-pen fa-padding-right"></i> Register
         </a>
+        <hr>
     <?php endif; ?>
+
     <?php if($record['online']): ?>
         <a href="<?=$record['online']?>" class="w3-button w3-white w3-border">
             <i class="fa-solid fa-globe fa-padding-right"></i> Join Online
