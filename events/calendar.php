@@ -89,7 +89,7 @@ $month_name = date('F Y', $first_day);
 
     <!-- Calendar Navigation -->
     <div class="w3-bar w3-margin-bottom" style="display: flex; align-items: center; gap: 10px;">
-        <a href="/calendar?month=<?=$prev_month?>&year=<?=$prev_year?>" class="w3-button w3-white w3-border">
+        <a href="/calendar/month/<?=$prev_month?>/year/<?=$prev_year?>" class="w3-button w3-white w3-border">
             <i class="fa-solid fa-chevron-left"></i> Previous
         </a>
         
@@ -97,7 +97,7 @@ $month_name = date('F Y', $first_day);
             <h2 style="margin: 0;"><?=$month_name?></h2>
         </div>
         
-        <a href="/calendar?month=<?=$next_month?>&year=<?=$next_year?>" class="w3-button w3-white w3-border">
+        <a href="/calendar/month/<?=$next_month?>/year/<?=$next_year?>" class="w3-button w3-white w3-border">
             Next <i class="fa-solid fa-chevron-right"></i>
         </a>
     </div>
@@ -132,16 +132,19 @@ $month_name = date('F Y', $first_day);
                     ?>
                         <tr>
                             <?php for ($dow = 0; $dow < 7; $dow++): ?>
-                                <td style="vertical-align: top !important; height: 100px; padding: 5px; border: 1px solid #ddd;">
+                                <?php
+                                $is_today = ($day_counter == date('j') && $month == date('n') && $year == date('Y'));
+                                $cell_class = $is_today ? 'w3-light-grey' : '';
+                                ?>
+                                <td class="<?=$cell_class?>" style="vertical-align: top !important; height: 100px; padding: 5px; border: 1px solid #ddd;">
                                     <?php
                                     // Check if we should start printing days
                                     if ($week == 0 && $dow < $day_of_week) {
                                         // Empty cell before month starts
-                                        
                                     } elseif ($day_counter <= $days_in_month) {
                                         // Print day number
                                         echo '<div style="font-weight: bold; margin-bottom: 3px;">'.$day_counter.'</div>';
-                                        
+
                                         // Print events for this day
                                         if (isset($events_by_day[$day_counter])) {
                                             foreach ($events_by_day[$day_counter] as $event) {
@@ -154,7 +157,7 @@ $month_name = date('F Y', $first_day);
                                                 echo '</div>';
                                             }
                                         }
-                                        
+
                                         $day_counter++;
                                     } else {
                                         // Empty cell after month ends
