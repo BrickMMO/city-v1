@@ -88,7 +88,7 @@ $month_name = date('F Y', $first_day);
     <hr>
 
     <!-- Calendar Navigation -->
-    <div class="w3-bar w3-margin-bottom" style="display: flex; align-items: center; gap: 10px;">
+    <div class="w3-bar w3-margin-bottom" style="display: flex; align-items: center;">
         <a href="/calendar/month/<?=$prev_month?>/year/<?=$prev_year?>" class="w3-button w3-white w3-border">
             <i class="fa-solid fa-chevron-left"></i> Previous
         </a>

@@ -31,36 +31,37 @@ $result = mysqli_query($connect, $query);
 
     <hr>
 
-    <div class="w3-row-padding" style="display: flex; flex-wrap: wrap;">
+    <div class="w3-flex" style="flex-wrap: wrap; gap: 16px; align-items: stretch;">
 
         <?php while ($record = mysqli_fetch_assoc($result)): ?>
 
-            <div class="w3-half w3-margin-bottom" style="display: flex;">
-                <div class="w3-card-4" style="width: 100%; display: flex; flex-direction: column;">
-                    
+            <div style="width: calc(50% - 16px); box-sizing: border-box; display: flex; flex-direction: column;">
+                <div class="w3-card-4 w3-margin-top" style="max-width:100%; height: 100%; display: flex; flex-direction: column;">
+
                     <header class="w3-container w3-purple">
                         <h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?=$record['name']?></h4>
                     </header>
 
-                    <div class="w3-container w3-padding" style="flex: 1; display: flex; flex-direction: column;">
+                    <div class="w3-margin">
                         <a href="/details/<?=$record['id']?>">
                             <?php if($record['thumbnail']): ?>
-                                <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; height: 300px; object-fit: cover;">
+                                <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; ">
                             <?php else: ?>
-                                <img src="https://cdn.brickmmo.com/images@1.0.0/no-calendar.png" class="w3-image" style="width: 100%; height: 200px; object-fit: cover;">
+                                <img src="https://cdn.brickmmo.com/images@1.0.0/no-calendar.png" class="w3-image" style="width: 100%;">
                             <?php endif; ?>
                         </a>
                         
                         <div class="w3-margin-top" style="flex: 1;">
-                            <strong>Date:</strong> <?=date_to_format($record['starts_at'], 'SHORT_FULL')?>
+                            Date: <span class="w3-bold"><?=date_to_format($record['starts_at'], 'SHORT_FULL')?></span>
                             <br>
-                            <strong>Location:</strong> <?=$record['location']?>
+                            Location: <span class="w3-bold"><?=$record['location']?></span>
                         </div>
                         
                         <div class="w3-margin-top">
                             <a href="/details/<?=$record['id']?>" class="w3-button w3-white w3-border w3-block">Event Details</a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
