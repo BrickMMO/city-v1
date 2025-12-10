@@ -110,14 +110,14 @@ $events_count = mysqli_num_rows($result);
         <tr>
             <td>
                 <?php if($record['thumbnail']): ?>
-                    <a href="/admin/thumbnail/<?=$record['id'] ?>">
+                    <a href="<?=ENV_DOMAIN?>/admin/thumbnail/<?=$record['id'] ?>">
                         <img src="<?=$record['thumbnail']?>" width="70">
                     </a>
                 <?php endif; ?>
             </td>
             <td>
                 <?php if($record['banner']): ?>
-                    <a href="/admin/banner/<?=$record['id'] ?>">
+                    <a href="<?=ENV_DOMAIN?>/admin/banner/<?=$record['id'] ?>">
                         <img src="<?=$record['banner']?>" width="70">
                     </a>
                 <?php endif; ?>
@@ -140,12 +140,12 @@ $events_count = mysqli_num_rows($result);
                 </small>
             </td>
             <td>
-                <a href="/admin/thumbnail/<?=$record['id'] ?>">
+                <a href="<?=ENV_DOMAIN?>/admin/thumbnail/<?=$record['id'] ?>">
                     <i class="fa-solid fa-image"></i>
                 </a>
             </td>
             <td>
-                <a href="/admin/banner/<?=$record['id'] ?>">
+                <a href="<?=ENV_DOMAIN?>/admin/banner/<?=$record['id'] ?>">
                     <i class="fa-solid fa-panorama"></i>
                 </a>
             </td>
@@ -155,7 +155,7 @@ $events_count = mysqli_num_rows($result);
                 </a>
             </td>
             <td>
-                <a href="/admin/edit/<?=$record['id'] ?>">
+                <a href="<?=ENV_DOMAIN?>/admin/edit/<?=$record['id'] ?>">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
             </td>
@@ -170,7 +170,7 @@ $events_count = mysqli_num_rows($result);
 </table>
 
 <a
-    href="/admin/add"
+    href="<?=ENV_DOMAIN?>/admin/add"
     class="w3-button w3-white w3-border"
 >
     <i class="fa-solid fa-pen-to-square fa-padding-right"></i> Add Event
@@ -179,7 +179,7 @@ $events_count = mysqli_num_rows($result);
 
 <!--
 <a
-    href="/admin/import"
+    href="<?=ENV_DOMAIN?>/admin/import"
     class="w3-button w3-white w3-border"
 >
     <i class="fa-solid fa-download"></i> Import Colours
@@ -199,7 +199,7 @@ $events_count = mysqli_num_rows($result);
             <div class="w3-container w3-padding">Uptime Status Summary</div>
             <footer class="w3-container w3-border-top w3-padding">
                 <a
-                    href="/admin/uptime/colours"
+                    href="<?=ENV_DOMAIN?>/admin/uptime/colours"
                     class="w3-button w3-border w3-white"
                 >
                     <i class="fa-regular fa-file-lines fa-padding-right"></i>
@@ -216,7 +216,7 @@ $events_count = mysqli_num_rows($result);
             <div class="w3-container w3-padding">App Statistics Summary</div>
             <footer class="w3-container w3-border-top w3-padding">
                 <a
-                    href="/stats/colours"
+                    href="<?=ENV_DOMAIN?>/stats/colours"
                     class="w3-button w3-border w3-white"
                 >
                     <i class="fa-regular fa-chart-bar fa-padding-right"></i> Full Report

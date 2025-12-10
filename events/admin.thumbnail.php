@@ -87,7 +87,7 @@ $record = mysqli_fetch_assoc($result);
 </h1>
 
 <p>
-    <a href="/admin/dashboard">Events</a> / 
+    <a href="<?=ENV_DOMAIN?>/admin/dashboard">Events</a> / 
     Event Thumbnail
 </p>
 <hr />

@@ -26,7 +26,7 @@ $result = mysqli_query($connect, $query);
     
     <div class="w3-center">
         <h1>Upcoming Events</h1>
-        <a href="/list">Upcoming Events</a> | <a href="/calendar">Calendar View</a>
+        <a href="<?=ENV_DOMAIN?>/list">Upcoming Events</a> | <a href="<?=ENV_DOMAIN?>/calendar">Calendar View</a>
     </div>
 
     <hr>
@@ -43,7 +43,7 @@ $result = mysqli_query($connect, $query);
                     </header>
 
                     <div class="w3-margin">
-                        <a href="/details/<?=$record['id']?>">
+                        <a href="<?=ENV_DOMAIN?>/details/<?=$record['id']?>">
                             <?php if($record['thumbnail']): ?>
                                 <img src="<?=$record['thumbnail']?>" class="w3-image" style="width: 100%; ">
                             <?php else: ?>
@@ -58,7 +58,7 @@ $result = mysqli_query($connect, $query);
                         </div>
                         
                         <div class="w3-margin-top">
-                            <a href="/details/<?=$record['id']?>" class="w3-button w3-white w3-border w3-block">Event Details</a>
+                            <a href="<?=ENV_DOMAIN?>/details/<?=$record['id']?>" class="w3-button w3-white w3-border w3-block">Event Details</a>
                         </div>
                     </div>
 

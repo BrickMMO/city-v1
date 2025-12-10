@@ -68,7 +68,7 @@ include('../templates/message.php');
     Events
 </h1>
 <p>
-    <a href="/admin/dashboard">Events</a> / 
+    <a href="<?=ENV_DOMAIN?>/admin/dashboard">Events</a> / 
     Add Event
 </p>
 
