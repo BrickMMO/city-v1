@@ -1,7 +1,7 @@
 
 <script 
     src="<?=ENV_LOCAL ? 'http://sso.local.brickmmo.com:33/bar.js' : 'https://cdn.brickmmo.com/bar@1.1.0/bar.js'?>"
-    data-console="false"
+    data-console="true"
     data-menu="false"
     data-admin="true"
     data-city="true"

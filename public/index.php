@@ -32,6 +32,12 @@ if(isset($_SESSION['user'])) $_user = user_fetch($_SESSION['user']['id']);
 else $_user = false;
 
 /**
+ * Fetch city if applicable.
+ */
+if(isset($_SESSION['city'])) $_city = city_fetch($_SESSION['city']['id']);
+else $_city = false;
+
+/**
  * Get domain.
  */
 if(is_numeric(strpos($_SERVER['HTTP_HOST'], 'city.'))) $domain = 'city';
