@@ -18,7 +18,7 @@ include('../templates/message.php');
 
 <div class="w3-center">
 
-    <a href="<?=ENV_DOMAIN?>/city/image">
+    <a href="<?=ENV_DOMAIN?>/console/image">
         <img
             src="<?=city_avatar($_city['id']);?>"
             style="height: 100px"
@@ -38,25 +38,25 @@ include('../templates/message.php');
 <div class="w3-border w3-padding w3-margin-top w3-margin-bottom">
 
     <div class="w3-margin-top w3-margin-bottom">
-        <a href="<?=ENV_DOMAIN?>/city/profile" class="w3-display-container">
+        <a href="<?=ENV_DOMAIN?>/console/profile" class="w3-display-container">
             <i class="fa-solid fa-city fa-padding-right w3-text-dark-grey"></i>
             City Profile
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey"></i>
         </a>
         <hr>
-        <a href="<?=ENV_DOMAIN?>/city/url" class="w3-display-container">
+        <a href="<?=ENV_DOMAIN?>/console/url" class="w3-display-container">
             <i class="fa-solid fa-globe fa-padding-right w3-text-dark-grey"></i>
             URL
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey"></i>
         </a>
         <hr>
-        <a href="<?=ENV_DOMAIN?>/city/image" class="w3-block">
+        <a href="<?=ENV_DOMAIN?>/console/image" class="w3-block">
             <i class="fa-solid fa-image-portrait fa-padding-right w3-text-dark-grey"></i>
             Image
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey" class="w3-display-right"></i>
         </a>
         <hr>
-        <a href="<?=ENV_DOMAIN?>/city/members" class="w3-block">
+        <a href="<?=ENV_DOMAIN?>/console/members" class="w3-block">
             <i class="fa-solid fa-user fa-padding-right w3-text-dark-grey"></i>
             Members
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey" class="w3-display-right"></i>
@@ -65,6 +65,8 @@ include('../templates/message.php');
 </div>
 
 <?php
+
+include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

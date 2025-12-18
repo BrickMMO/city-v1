@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         !validate_number($_POST['height']))
     {
         message_set('City Profile Error', 'There was an error with your city profile information.', 'red');
-        header_redirect('/city/profile');
+        header_redirect('/console/profile');
     }
 
     $query = 'UPDATE cities SET
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     mysqli_query($connect, $query);
 
     message_set('City Profile Success', 'Your city profile has been updated.');
-    header_redirect('/city/dashboard');
+    header_redirect('/console/dashboard');
     
 }
 

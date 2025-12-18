@@ -1,6 +1,7 @@
 <?php
 
 security_check();
+city_check();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
@@ -12,9 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         validate_reserved_urls($_POST['url']) ||
         validate_url_exists($_POST['url'], 'cities', $_city['id']))
     {
-        die('here');
         message_set('URL Error', 'There was an error with your city URL.', 'red');
-        header_redirect('/city/url');
+        header_redirect('/console/url');
     }
 
     $query = 'UPDATE cities SET
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     security_set_user_session($_user['id']);
 
     message_set('Password Success', 'Your city URL has been updated.');
-    header_redirect('/city/dashboard');
+    header_redirect('/console/dashboard');
     
 }
 
@@ -57,7 +57,7 @@ include('../templates/message.php');
     <?=$_city['name']?>
 </h1>
 <p>
-    <a href="/city/dashboard">Dashboard</a> / 
+    <a href="/console/dashboard">Dashboard</a> / 
     Change URL
 </p>
 <hr />
@@ -68,13 +68,13 @@ include('../templates/message.php');
     <p>
         Adding a URL to your city profile will make your city publicly visable at:
         <br />
-        <a href="#"><?=ENV_CONSOLE_DOMAIN?>/profile/<span id="city-url">&lt;CITY_URL&gt;</span></a>
+        <a href="#"><?=ENV_DOMAIN?>/profile/<span id="city-url">&lt;CITY_URL&gt;</span></a>
     </p>
 <?php else: ?>
     <p>
         Your city profile is currently available at:
         <br />
-        <a href="<?=ENV_CONSOLE_DOMAIN?>/profile/<?=$_city['url']?>"><?=ENV_CONSOLE_DOMAIN?>/profile/<span id="your-url"><?=$_city['url']?></span></a>
+        <a href="<?=ENV_DOMAIN?>/profile/<?=$_city['url']?>"><?=ENV_DOMAIN?>/profile/<span id="your-url"><?=$_city['url']?></span></a>
     </p>
     <p>
         Changing your city URL will cause your previous URL to no longer function and it will become available
@@ -123,12 +123,12 @@ include('../templates/message.php');
     });
 
     async function validateExistingUrl(url) {
-        return fetch('/ajax/url/exists',{
+        return fetch('/ajax/exists',{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({url: url, id: <?=$_user['id']?>})
+                body: JSON.stringify({url: url, id: <?=$_city['id']?>})
             })  
             .then((response)=>response.json())
             .then((responseJson)=>{return responseJson});

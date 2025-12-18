@@ -107,3 +107,11 @@ function validate_image($value)
     elseif(!in_array($value['type'], array('image/jpeg', 'image/jpg', 'image/png', 'image/gif'))) return false;
     else return true;   
 }
+
+/*
+ * Basic validation for numbers
+ */
+function validate_number($value)
+{
+    return is_numeric($value);
+}   
