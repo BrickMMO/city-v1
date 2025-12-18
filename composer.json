@@ -1,4 +1,6 @@
 {
   "require": {
+    "smottt/wideimage": "^1.1",
+    "getbrevo/brevo-php": "^1.0.0"
   }
 }

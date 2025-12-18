@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         !validate_image($_FILES['image']))
     {
         message_set('Image Error', 'There was an error with your uploaded image. Image may be wrong type or size.', 'red');
-        header_redirect('/city/image');
+        header_redirect('/console/image');
     }
 
     $image = Wideimage::load($_FILES['image']['tmp_name']);
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     mysqli_query($connect, $query);
     
     message_set('Image Success', 'Your profile image has been updated.');
-    header_redirect('/city/dashboard');
+    header_redirect('/console/dashboard');
     
 }
 
@@ -51,14 +51,14 @@ include('../templates/message.php');
 
 <h1 class="w3-margin-top w3-margin-bottom">
     <img
-        src="https://cdn.brickmmo.com/icons@1.0.0/bricksum.png"
+        src="https://cdn.brickmmo.com/icons@1.0.0/city.png"
         height="50"
         style="vertical-align: top"
     />
     <?=$_city['name']?>
 </h1>
 <p>
-    <a href="/city/dashboard">Dashboard</a> / 
+    <a href="/console/dashboard">Dashboard</a> / 
     Image
 </p>
 <hr />
