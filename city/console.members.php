@@ -9,7 +9,7 @@ if (isset($_GET['uninvite']))
     if(!$user = user_fetch($_GET['uninvite']))
     {
         message_set('Delete Error', 'There was an error removing this member from the city.', 'red');
-        header_redirect('/city/members');
+        header_redirect('/console/members');
     }
 
     $query = 'DELETE FROM city_user 
@@ -18,17 +18,10 @@ if (isset($_GET['uninvite']))
         LIMIT 1';
     mysqli_query($connect, $query);
 
-    $query = 'UPDATE users SET
-        city_id = NULL
-        WHERE id = '.$user['id'].'
-        AND city_id = '.$_city['id'].'
-        LIMIT 1';
-    mysqli_query($connect, $query);
-
     city_set();
 
     message_set('Delete Success', 'Member has been removed from this city.');
-    header_redirect('/city/dashboard');
+    header_redirect('/console/dashboard');
     
 }
 
@@ -45,11 +38,12 @@ include('../templates/main_header.php');
 
 include('../templates/message.php');
 
-$query = 'SELECT users.*,city_user.*
-    FROM users
-    INNER JOIN city_user ON users.id = city_user.user_id
+$users = users_fetch();
+
+$query = 'SELECT city_user.*
+    FROM city_user
     WHERE city_user.city_id = '.$_city['id'].'
-    ORDER BY last,first';
+    ORDER BY updated_at DESC';
 $result = mysqli_query($connect, $query);
 
 ?>
@@ -58,14 +52,14 @@ $result = mysqli_query($connect, $query);
 
 <h1 class="w3-margin-top w3-margin-bottom">
     <img
-        src="https://cdn.brickmmo.com/icons@1.0.0/bricksum.png"
+        src="https://cdn.brickmmo.com/icons@1.0.0/sso.png"
         height="50"
         style="vertical-align: top"
     />
     <?=$_city['name']?>
 </h1>
 <p>
-    <a href="/city/dashboard">Dashboard</a> / 
+    <a href="/console/dashboard">Dashboard</a> / 
     Members
 </p>
 <hr />
@@ -96,13 +90,13 @@ $result = mysqli_query($connect, $query);
                 <?php endif; ?>
             </td>
             <td>
-                <?=$record['first']?> <?=$record['last']?>
+                <?=$users[$record['user_id']]['first']?> <?=$users[$record['user_id']]['last']?>
             </td>
             <td>
-                <?php if($record['github_username']): ?>
-                    <a href="https://github.com/<?=$record['github_username']?>">
+                <?php if($users[$record['user_id']]['github_username']): ?>
+                    <a href="https://github.com/<?=$users[$record['user_id']]['github_username']?>">
                         <i class="fa-brands fa-github"></i>
-                        <?=$record['github_username']?>
+                        <?=$users[$record['user_id']]['github_username']?>
                     </a>
                 <?php endif; ?>
             </td>
@@ -119,7 +113,7 @@ $result = mysqli_query($connect, $query);
 </table>
 
 <a
-    href="/city/invite/"
+    href="/console/invite/"
     class="w3-button w3-white w3-border"
 >
     <i class="fa-solid fa-envelope fa-padding-right"></i> Invite New Member

@@ -68,13 +68,13 @@ include('../templates/message.php');
     <p>
         Adding a URL to your city profile will make your city publicly visable at:
         <br />
-        <a href="#"><?=ENV_DOMAIN?>/profile/<span id="city-url">&lt;CITY_URL&gt;</span></a>
+        <a href="#"><?=ENV_DOMAIN?>/console/<span id="city-url">&lt;CITY_URL&gt;</span></a>
     </p>
 <?php else: ?>
     <p>
         Your city profile is currently available at:
         <br />
-        <a href="<?=ENV_DOMAIN?>/profile/<?=$_city['url']?>"><?=ENV_DOMAIN?>/profile/<span id="your-url"><?=$_city['url']?></span></a>
+        <a href="<?=ENV_DOMAIN?>/city/<?=$_city['url']?>"><?=ENV_DOMAIN?>/city/<span id="city-url"><?=$_city['url']?></span></a>
     </p>
     <p>
         Changing your city URL will cause your previous URL to no longer function and it will become available
@@ -110,15 +110,18 @@ include('../templates/message.php');
 <script>
 
     let url = document.getElementById("url");
-    let your_url = document.getElementById('your-url');
+    let city_url = document.getElementById('city-url');
     url.addEventListener('keyup', (e) => {
+
+
+        console.log('here');
         if(e.target.value)
         {
-            your_url.innerHTML = e.target.value;
+            city_url.innerHTML = e.target.value;
         }
         else
         {
-            your_url.innerHTML = '&lt;YOUR_URL&gt;';
+            city_url.innerHTML = '&lt;YOUR_URL&gt;';
         }
     });
 

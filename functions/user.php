@@ -46,3 +46,19 @@ function user_fetch($identifier, $field = false)
     else return false;
 
 }
+
+function users_fetch()
+{
+
+    $data = fetch_json('https://sso.brickmmo.com/api/users');
+
+    $users = [];
+
+    foreach($data['users'] as $user)
+    {
+        $users[$user['id']] = $user;
+    }
+
+    return $users;
+
+}
