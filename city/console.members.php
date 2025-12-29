@@ -102,7 +102,7 @@ $result = mysqli_query($connect, $query);
             </td>
             <td>
                 <?php if($record['user_id'] != $_user['id'] && $record['user_id'] != $_city['user_id']): ?>
-                    <a href="#" onclick="return confirmModal('Are you sure you want to remove <?=user_name($_user['id'])?> from <?=$_city['name']?>?', '/city/members/uninvite/<?=$record['user_id']?>');">
+                    <a href="#" onclick="return confirmModal('Are you sure you want to remove <?=user_name($record['user_id'])?> from <?=$_city['name']?>?', '/console/members/uninvite/<?=$record['user_id']?>');">
                         <i class="fa-solid fa-xmark"></i>
                     </a>
                 <?php endif; ?>

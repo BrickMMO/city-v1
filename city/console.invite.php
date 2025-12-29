@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         !validate_email($_POST['email']))
     {
         message_set('Invite Error', 'There was an error with the provided invitation email address.', 'red');
-        header_redirect('/city/invite');
+        header_redirect('/console/invite');
     }
 
     $data['invite_hash'] = string_hash();
@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     email_send($_POST['email'], $_POST['name'], $message, 'Invitation to BrickMMO');
 
-    message_set('Invite Success', 'Your city invitation has been sent to your new member.');
-    header_redirect('/city/dashboard');
+    message_set('Invite Success', 'Your invitation has been sent to your new member.');
+    header_redirect('/console/dashboard');
     
 }
 
@@ -72,8 +72,8 @@ include('../templates/message.php');
     <?=$_city['name']?>
 </h1>
 <p>
-    <a href="/city/dashboard">Dashboard</a> / 
-    <a href="/city/members">Members</a> / 
+    <a href="/console/dashboard">Dashboard</a> / 
+    <a href="/console/members">Members</a> / 
     Invite Member
 </p>
 <hr />

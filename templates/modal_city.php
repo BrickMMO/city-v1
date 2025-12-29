@@ -55,7 +55,7 @@ $result = mysqli_query($connect, $query);
       </table>
     </div>
     <footer class="w3-container w3-border-top w3-right-align w3-padding">
-      <a class="w3-button w3-white w3-border" href="<?=ENV_DOMAIN?>/city/create">
+      <a class="w3-button w3-white w3-border" href="<?=ENV_DOMAIN?>/console/create">
         <i class="fa-solid fa-plus fa-padding-right"></i>
         Create City
       </a>

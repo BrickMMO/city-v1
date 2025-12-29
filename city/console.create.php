@@ -1,37 +1,64 @@
 <?php
 
 security_check();
-city_check();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
-    
+
     // Basic serverside validation
     if (
         !validate_blank($_POST['name']) || 
-        !validate_number($_POST['width']) || 
-        !validate_number($_POST['height']))
+        !validate_blank($_POST['width']) || 
+        !validate_blank($_POST['height']))
     {
-        message_set('City Profile Error', 'There was an error with your city profile information.', 'red');
-        header_redirect('/console/profile');
+        message_set('New City Error', 'There was an error with your city information.', 'red');
+        header_redirect('/console/create');
     }
 
-    $query = 'UPDATE cities SET
-        name = "'.addslashes($_POST['name']).'",
-        width = "'.addslashes($_POST['width']).'",
-        height = "'.addslashes($_POST['height']).'"
-        WHERE id = '.$_city['id'].'
-        LIMIT 1';
+    $query = 'INSERT INTO cities (
+            name,
+            width,
+            height,
+            user_id,
+            date_multiplier,
+            date_at,
+            created_at,
+            updated_at
+        ) VALUES (
+            "'.addslashes($_POST['name']).'",
+            "'.addslashes($_POST['width']).'",
+            "'.addslashes($_POST['height']).'",
+            '.$_user['id'].',
+            1,
+            NOW(),
+            NOW(),
+            NOW()
+        )';
+    $result = mysqli_query($connect, $query);
+
+    $city_id = mysqli_insert_id($connect);
+
+    $query = 'INSERT INTO city_user (
+            city_id, 
+            user_id
+        ) VALUES (
+            '.$city_id.',
+            '.$_user['id'].'
+        )';
     mysqli_query($connect, $query);
 
-    message_set('City Profile Success', 'Your city profile has been updated.');
+    city_set($_user['id'], $city_id);
+
+    security_set_user_session($_user['id']);
+
+    message_set('New City Success', 'Congratulations! A new city has been created.');
     header_redirect('/console/dashboard');
     
 }
 
-define('APP_NAME', $_city['name']);
+define('APP_NAME', 'My Account');
 
-define('PAGE_TITLE', 'City Profile');
+define('PAGE_TITLE', 'Create City');
 define('PAGE_SELECTED_SECTION', '');
 define('PAGE_SELECTED_SUB_PAGE', '');
 
@@ -41,8 +68,6 @@ include('../templates/nav_slideout.php');
 include('../templates/main_header.php');
 
 include('../templates/message.php');
-
-$city = city_fetch($_city['id']);
 
 ?>
 
@@ -54,15 +79,15 @@ $city = city_fetch($_city['id']);
         height="50"
         style="vertical-align: top"
     />
-    <?=$_city['name']?>
+    My Account
 </h1>
 <p>
-    <a href="/console/dashboard">Dashboard</a> / 
-    City Profile
+    <a href="/account/dashboard">Dashboard</a> / 
+    Create City
 </p>
 <hr />
 
-<h2>City Profile</h2>
+<h2>Create City</h2>
 
 <form
     method="post"
@@ -76,7 +101,6 @@ $city = city_fetch($_city['id']);
         type="text" 
         id="name" 
         autocomplete="off"
-        value="<?=$city['name']?>"
     />
     <label for="name" class="w3-text-gray">
         Name <span id="name-error" class="w3-text-red"></span>
@@ -88,7 +112,6 @@ $city = city_fetch($_city['id']);
         type="number" 
         id="width" 
         autocomplete="off"
-        value="<?=$city['width']?>"
     />
     <label for="width" class="w3-text-gray">
         <i class="fa-solid fa-ruler"></i>
@@ -101,7 +124,6 @@ $city = city_fetch($_city['id']);
         type="number" 
         id="height" 
         autocomplete="off" 
-        value="<?=$city['height']?>"
     />  
     <label for="height" class="w3-text-gray">
         <i class="fa-solid fa-ruler"></i>
@@ -109,8 +131,8 @@ $city = city_fetch($_city['id']);
     </label>
 
     <button class="w3-block w3-btn w3-orange w3-text-white w3-margin-top" onclick="return validateMainForm();">
-        <i class="fa-solid fa-pen fa-padding-right"></i>
-        Update Profile
+        <i class="fa-solid fa-plus fa-padding-right"></i>
+        Create City
     </button>
 </form>
 

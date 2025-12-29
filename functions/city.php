@@ -64,7 +64,7 @@ function city_check()
 
     if(!$_city)
     {
-        $query = 'SELECT *
+        $query = 'SELECT cities.*
             FROM cities
             INNER JOIN city_user
             ON cities.id = city_user.city_id
@@ -232,8 +232,7 @@ function city_set($user_id, $city_id = false)
 
         $query = 'UPDATE city_user SET
             current = 0
-            WHERE user_id = '.$user_id.'
-            LIMIT 1';
+            WHERE user_id = '.$user_id;
         mysqli_query($connect, $query);
 
         $query = 'UPDATE city_user SET
