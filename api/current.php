@@ -19,6 +19,7 @@ if(security_is_logged_in())
             'message' => 'User has no associated city.',
             'error' => true, 
         );
+        
     }
     else
     {

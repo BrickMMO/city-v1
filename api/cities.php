@@ -5,7 +5,9 @@ $query = 'SELECT *
 
 if(isset($_GET['user_id']) && is_numeric($_GET['user_id']))
 {
+
     $query .= 'WHERE user_id != "'.$_GET['user_id'].'" ';
+    
 }
 
 $query .= 'ORDER BY name'; 

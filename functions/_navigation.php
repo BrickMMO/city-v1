@@ -5,24 +5,36 @@ function navigation_array($selected = false)
 
     $navigation = [
         [
-            'title' => 'Events',
+            'title' => 'City',
             'sections' => [
                 [
-                    'title' => 'Events',
+                    'title' => 'City',
                     'id' => 'admin-content',
                     'pages' => [
                         [
-                            'icon' => 'events',
-                            'url' => '/admin/dashboard',
-                            'title' => 'Events',
+                            'icon' => 'city',
+                            'url' => '/console/dashboard',
+                            'title' => 'City',
                             'sub-pages' => [
                                 [
                                     'title' => 'Dashboard',
-                                    'url' => '/admin/dashboard',
+                                    'url' => '/console/dashboard',
                                     'colour' => 'red',
                                 ],[
-                                    'title' => 'Add Event',
-                                    'url' => '/admin/add',
+                                    'title' => 'Map',
+                                    'url' => '/console/map/dashboard',
+                                    'colour' => 'red',
+                                ],[
+                                    'title' => 'Places',
+                                    'url' => '/console/places',
+                                    'colour' => 'red',
+                                ],[
+                                    'title' => 'Roads',
+                                    'url' => '/console/roads',
+                                    'colour' => 'red',
+                                ],[
+                                    'title' => 'Tracks',
+                                    'url' => '/console/tracks',
                                     'colour' => 'red',
                                 ],[
                                     'br' => '---',

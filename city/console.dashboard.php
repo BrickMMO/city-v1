@@ -3,14 +3,14 @@
 security_check();
 city_check();
 
-define('APP_NAME', $_city['name']);
-
+define('APP_NAME', 'Applications');
 define('PAGE_TITLE', 'Dashboard');
-define('PAGE_SELECTED_SECTION', '');
-define('PAGE_SELECTED_SUB_PAGE', '');
+define('PAGE_SELECTED_SECTION', 'console-dashboard');
+define('PAGE_SELECTED_SUB_PAGE', '/console/dashboard');
 
 include('../templates/html_header.php');
 include('../templates/nav_header.php');
+include('../templates/nav_sidebar.php');
 include('../templates/main_header.php');
 include('../templates/message.php');
 
